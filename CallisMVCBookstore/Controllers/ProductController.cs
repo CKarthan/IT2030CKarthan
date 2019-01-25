@@ -20,15 +20,15 @@ namespace CallisMVCBookstore.Controllers {
             return browseDisplay;
         }
 
-        //GET Details with ID param
-        public string Details(int productId) {
-            string productDetails = "Details displayed for Id: " + productId;
+        //GET Details with ID in URL
+        public string Details(int id) {
+            string productDetails = "Details displayed for id = " + id;
 
             return productDetails;
         }
 
-        public string Location(int zipcode) {
-            string locationValue = HttpUtility.HtmlEncode("Location displayed for zip: " + zipcode);
+        public string Location(int zip) {
+            string locationValue = HttpUtility.HtmlEncode("Location displayed for zip = " + zip);
 
             return locationValue;
         }
