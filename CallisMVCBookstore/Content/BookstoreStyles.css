@@ -1,0 +1,16 @@
+﻿body {
+}
+
+#storeHeader {
+    height: 5em;
+    width: 50%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    display: inline;
+}
+
+.pugPic {
+    width: 1.5em;
+    height: 1.5em;
+}
