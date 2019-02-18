@@ -29,6 +29,12 @@ namespace EnrollmentApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Enrollment enrollment = db.Enrollments.Find(id);
+            Student student = db.Students.Find(enrollment.StudentId);
+            Course course = db.Courses.Find(enrollment.CourseId);
+
+            enrollment.Student = student;
+            enrollment.Course = course;
+
             if (enrollment == null)
             {
                 return HttpNotFound();
@@ -49,7 +55,7 @@ namespace EnrollmentApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EnrollmentId,StudentId,CourseId,Grade")] Enrollment enrollment)
+        public ActionResult Create([Bind(Include = "EnrollmentId,StudentId,CourseId,Grade,IsActive,AssignedCampus,EnrollmentSemester,EnrollmentYear ")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +91,7 @@ namespace EnrollmentApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EnrollmentId,StudentId,CourseId,Grade")] Enrollment enrollment)
+        public ActionResult Edit([Bind(Include = "EnrollmentId,StudentId,CourseId,Grade,IsActive,AssignedCampus,EnrollmentSemester,EnrollmentYear")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
