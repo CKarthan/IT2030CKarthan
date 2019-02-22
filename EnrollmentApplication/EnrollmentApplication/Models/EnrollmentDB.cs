@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 
@@ -15,8 +16,8 @@ namespace EnrollmentApplication.Models
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
-        public EnrollmentDB() : base("name=EnrollmentDB")
-        {
+        public EnrollmentDB() : base("name=EnrollmentDB"){
+           
         }
 
         public System.Data.Entity.DbSet<EnrollmentApplication.Models.Enrollment> Enrollments { get; set; }
@@ -24,5 +25,20 @@ namespace EnrollmentApplication.Models
         public System.Data.Entity.DbSet<EnrollmentApplication.Models.Course> Courses { get; set; }
 
         public System.Data.Entity.DbSet<EnrollmentApplication.Models.Student> Students { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+            Database.CreateIfNotExists();
+        }
     }
+
+
+
+    public class ContextConfiguration : DbMigrationsConfiguration<EnrollmentDB> {
+        public ContextConfiguration() {
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
+            ContextKey = "EnrollmentDB";
+        }
+    }
+
 }
