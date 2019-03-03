@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
 
 namespace EnrollmentApplication.Models {
@@ -31,5 +29,9 @@ namespace EnrollmentApplication.Models {
         [Required(ErrorMessage = "Please select an enrollment year.")]
         [Range(2018, 2099, ErrorMessage = "The enrollment year must be 2018 or later.")]
         public int EnrollmentYear { get; set; }
+
+        [InvalidCharsAttribute("@", ErrorMessage ="@ is not a valid character.")]
+        public virtual string Notes { get; set; }
+
     }
 }

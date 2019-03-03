@@ -33,12 +33,12 @@ namespace EnrollmentApplication.Models
 
 
 
-    public class ContextConfiguration : DbMigrationsConfiguration<EnrollmentDB> {
-        public ContextConfiguration() {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
-            ContextKey = "EnrollmentDB";
-        }
-    }
+    //public class ContextConfiguration : DbMigrationsConfiguration<EnrollmentDB> {
+    //    public ContextConfiguration() {
+    //        AutomaticMigrationsEnabled = true;
+    //        AutomaticMigrationDataLossAllowed = false;
+    //        ContextKey = "EnrollmentDB";
+    //    }
+    //}
 
 }
