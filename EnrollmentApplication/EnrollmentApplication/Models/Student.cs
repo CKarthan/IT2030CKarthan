@@ -37,12 +37,12 @@ namespace EnrollmentApplication.Models {
             }
 
             //Validation 2 Check to see the State field is only 2 letters
-            if(State.Length != 1) {
+            if(State.Length != 2) {
                 yield return new ValidationResult("Enter a 2 digit State code.", new [] {"State"});
             }
 
             //Validation 3 Check to see the Zipcode field is only 5 digits
-            if(Zipcode.Length != 4) {
+            if(Zipcode.Length != 5) {
               yield return new ValidationResult("Engter a 5 digit Zipcode", new [] {"Zipcode"});
             }
         }
