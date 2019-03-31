@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MVCMusicStoreApplication.Models.Album>
+
+
+<div>
+    <h2>Here are the list of albums:</h2>
+</div>
+@if (Model.Any()) {
+    <ul style="list-style-type:none;">
+        @foreach (var album in Model) {
+        <li>@Html.ActionLink(album.Title + " - " + album.Artist.Name, "Details", new { id = album.AlbumId })</li> 
+        }
+    </ul>
+} else {
+    <h4>Sorry, there are no albums for the selected genre.</h4>
+}
+
+@Html.ActionLink("Back to Browse", "Browse", "StoreFront")
+

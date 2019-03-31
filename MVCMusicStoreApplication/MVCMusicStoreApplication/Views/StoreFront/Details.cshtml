@@ -1,0 +1,15 @@
+﻿@model MVCMusicStoreApplication.Models.Album
+
+<h2>Album Details</h2>
+
+<div>
+    <h4>@Model.Title</h4>
+    <img src="@Model.AlbumArtUrl" />
+    <h5>Artist: @Model.Artist.Name</h5>
+    <h5>Price: $@Model.Price</h5>
+</div>
+
+<button class="btn-sm btn-success">Add to Cart</button>
+
+
+

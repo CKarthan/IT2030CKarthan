@@ -135,6 +135,7 @@
     <Compile Include="Controllers\ArtistController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StoreFrontController.cs" />
     <Compile Include="Controllers\StoreManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -200,6 +201,9 @@
     <Content Include="Views\Genre\Delete.cshtml" />
     <Content Include="Views\Genre\Details.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
+    <Content Include="Views\StoreFront\Browse.cshtml" />
+    <Content Include="Views\StoreFront\Index.cshtml" />
+    <Content Include="Views\StoreFront\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
