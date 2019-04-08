@@ -8,8 +8,7 @@
     <h5>Artist: @Model.Artist.Name</h5>
     <h5>Price: $@Model.Price</h5>
 </div>
-
-<button class="btn-sm btn-success">Add to Cart</button>
-
-
+<button class="btn-sm btn-success">
+   @Html.ActionLink("Add to Cart", "AddToCart", "ShoppingCart", new { id = Model.AlbumId }, "")
+</button>
 
