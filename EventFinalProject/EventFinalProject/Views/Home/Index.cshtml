@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>EventFULL</h1>
+    <p class="lead">Looking for something fun to do? Search for an activity and make life more EventFULL. Want to organize an event? We can help! Click "Organize an Event" to get started.</p>
+</div>
+
+<div class="panel panel-default" id="mainPageDiv">
+    <div class="panel-heading">Find an Event</div>
+    <div class="panel-body" id="mainSection">
+        @using (Ajax.BeginForm("EventSearchByName", "Event", new AjaxOptions {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+            OnFailure = "searchFailed",
+            LoadingElementId = "ajax-loader",
+            UpdateTargetId = "searchResults"
+        })) {
+        <div id="input1">
+            <input type="text" name="keyword" id="searchInput" />
+            <input type="submit" class="btn btn-default" value="Event or Event Type" />
+            <img id="ajax-loader"
+                 src="@Url.Content("~/Content/ajax-loader.gif")"
+                 height="20" width="20" style="display:none" />
+        </div> 
+        }
+        @using (Ajax.BeginForm("EventSearchByLocation", "Event", new AjaxOptions {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+            OnFailure = "searchFailed",
+            LoadingElementId = "ajax-loader",
+            UpdateTargetId = "searchResults"
+        })) {
+        <div id="input2">
+            <input type="text" name="keyword" />
+            <input type="submit" class="btn btn-default" value="City or State" />
+            <img id="ajax-loader"
+                 src="@Url.Content("~/Content/ajax-loader.gif")"
+                 height="20" width="20" style="display:none" />
+        </div>  
+        }
+        <div>
+            @using (Ajax.BeginForm("LastMinuteDeals", "Event", new AjaxOptions {
+                InsertionMode = InsertionMode.Replace,
+                HttpMethod = "GET",
+                OnFailure = "searchFailed",
+                LoadingElementId = "ajax-loader",
+                UpdateTargetId = "searchResults"
+            })) {
+                <input type="submit" class="btn btn-primary" value="Last Minute Deals" />
+                <img id="ajax-loader"
+                     src="@Url.Content("~/Content/ajax-loader.gif")"
+                     height="20" width="20" style="display:none" />
+            }
+        </div>
+      </div>
+    <div id="searchResults"></div>
+</div>
+@section Scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/ProjectJS/EventProjectScripts.js"></script>
+}
